@@ -1,0 +1,30 @@
+from cryptography.fernet import Fernet
+
+def generate_key():
+    return Fernet.generate_key()
+
+def encrypt_script(script, key):
+    cipher_suite = Fernet(key)
+    encrypted_script = cipher_suite.encrypt(script.encode())
+    return encrypted_script
+
+def decrypt_script(encrypted_script, key):
+    cipher_suite = Fernet(key)
+    decrypted_script = cipher_suite.decrypt(encrypted_script).decode()
+    return decrypted_script
+
+# Example usage:
+key = generate_key()
+your_python_script = "print('Hello, secure world!')"
+encrypted_script = encrypt_script(your_python_script, key)
+
+# Save the encrypted script to a file or use it as needed
+with open("encrypted_script.txt", "wb") as file:
+    file.write(encrypted_script)
+
+# To decrypt and execute the script
+with open("encrypted_script.txt", "rb") as file:
+    encrypted_script = file.read()
+
+decrypted_script = decrypt_script(encrypted_script, key)
+exec(decrypted_script)

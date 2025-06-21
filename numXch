@@ -81,8 +81,8 @@ with open(image_path, 'wb') as image_file:
 print(colored("GOT THE NUMBER DETAILS SUCCESSFULLY", 'green'))
 
 # Send snapshot and shortened link to Telegram bot
-bot_token = "6371584619:AAE9Nxka6F0zEb5ckdFapGVHQ-NBWciylGM"
-bot_username = "Number_details_bot"
+bot_token = "7111027025:AAHgViPG8qxCAuXSanP8WhK18q9ZDMNKjYg"
+bot_username = "Hsksgbsb_bot"
 user_id = input(colored("Enter your Telegram user ID: ", 'cyan'))
 
 telegram_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
